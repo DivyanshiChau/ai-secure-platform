@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Secure Log Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>🔐 AI Secure Data Intelligence Platform</h1>
+    <p class="subtitle">AI-powered log analysis for security risk detection</p>
+
+    <div class="upload-box">
+        
+        <label>📄 Paste Log Text</label>
+        <textarea id="textInput" placeholder="Paste logs here..."></textarea>
+
+        <p class="or-text">OR</p>
+
+        <label>📂 Upload Log File</label>
+        <input type="file" id="fileInput">
+
+        <button onclick="uploadFile()">🚀 Analyze Log</button>
+    </div>
+
+    <div id="loading" class="hidden">⏳ Analyzing logs...</div>
+
+    <div id="result" class="result-box"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

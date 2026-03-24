@@ -16,5 +16,10 @@ def detect_sensitive_data(text):
 
         if "exception" in line.lower():
             findings.append({"type": "stack_trace", "risk": "medium", "line": i})
+        if "token" in line.lower():
+            findings.append({"type": "token", "risk": "high", "line": i})
+
+        if re.search(r'\b\d{10}\b', line):
+            findings.append({"type": "phone", "risk": "low", "line": i})
 
     return findings

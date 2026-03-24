@@ -1,0 +1,5 @@
+User login
+email=admin@test.com
+password=admin123
+api_key=sk-12345
+Exception: NullPointerException
