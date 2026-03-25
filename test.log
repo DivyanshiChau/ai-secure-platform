@@ -1,5 +1,11 @@
-User login
-email=admin@test.com
+2026-03-10 10:00:01 INFO User login
+email=admin@company.com
+phone=9876543210
 password=admin123
-api_key=sk-12345
-Exception: NullPointerException
+api_key=sk-prod-xyz
+Authorization: Bearer abc123token
+DEBUG mode enabled
+ERROR stack trace: NullPointerException at service.java:45
+Failed login from IP 192.168.1.10
+Failed login from IP 192.168.1.10
+Failed login from IP 192.168.1.10

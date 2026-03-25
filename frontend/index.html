@@ -1,33 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>AI Secure Log Analyzer</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Secure Data Intelligence Platform</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-<div class="container">
+  <div class="container">
     <h1>🔐 AI Secure Data Intelligence Platform</h1>
-    <p class="subtitle">AI-powered log analysis for security risk detection</p>
+    <p class="subtitle">
+      AI Gateway + Scanner + Log Analyzer + Risk Engine
+    </p>
 
+    <!-- 💬 CHAT BOX -->
+    <div id="chatBox" class="chat-box"></div>
+    <button onclick="uploadFile()">🚀 Send / Analyze</button>
+
+    <!-- INPUT AREA -->
     <div class="upload-box">
-        
-        <label>📄 Paste Log Text</label>
-        <textarea id="textInput" placeholder="Paste logs here..."></textarea>
+      <label for="textInput">💬 Paste logs / text / SQL / chat input</label>
+      <textarea
+        id="textInput"
+        placeholder="Paste logs here... e.g. password=admin123 api_key=sk-xyz Exception: error"
+      ></textarea>
 
-        <p class="or-text">OR</p>
+      <p class="or-text">OR</p>
 
-        <label>📂 Upload Log File</label>
-        <input type="file" id="fileInput">
+      <label for="fileInput">📂 Upload File (.txt, .log, .pdf, .docx)</label>
+      <input
+        type="file"
+        id="fileInput"
+        accept=".txt,.log,.pdf,.doc,.docx"
+      />
 
-        <button onclick="uploadFile()">🚀 Analyze Log</button>
+      <button onclick="uploadFile()">🚀 Send / Analyze</button>
     </div>
 
-    <div id="loading" class="hidden">⏳ Analyzing logs...</div>
+    <div id="loading" class="hidden">⏳ Analyzing...</div>
 
-    <div id="result" class="result-box"></div>
-</div>
+    <!-- 📊 RESULT PANEL -->
+    <div id="result" class="result-box">
+      <p class="placeholder">Analysis results will appear here.</p>
+    </div>
+  </div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
