@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def generate_summary(text):
-    # 🔹 STEP 1: Try real AI (Gemini)
+    #gemini
     try:
         from google import genai
 
@@ -29,10 +29,10 @@ def generate_summary(text):
             return response.text
 
     except Exception:
-        pass  # fallback below
+        pass  
 
 
-    # 🔥 STEP 2: SMART FALLBACK (your AI simulation)
+    # ai simulation
 
     risks = []
     risk_level = "low"

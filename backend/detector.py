@@ -11,7 +11,7 @@ def detect_sensitive_data(text):
     for i, line in enumerate(lines, start=1):
         line_lower = line.lower()
 
-        # 📧 Email detection
+        # email
         emails = re.findall(r"[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+", line)
         for email in emails:
             findings.append({
@@ -21,7 +21,7 @@ def detect_sensitive_data(text):
                 "line": i
             })
 
-        # 📱 Phone detection
+        #phone
         phones = re.findall(r"\b\d{10}\b", line)
         for phone in phones:
             findings.append({
@@ -31,12 +31,12 @@ def detect_sensitive_data(text):
                 "line": i
             })
 
-        # 🌐 IP detection
+        # ip
         ips = re.findall(r"\b(?:\d{1,3}\.){3}\d{1,3}\b", line)
         for ip in ips:
             ip_counter[ip] += 1
 
-        # 🔑 API key detection
+        # api
         if "api_key" in line_lower or "sk-" in line_lower:
             findings.append({
                 "type": "api_key",
@@ -44,7 +44,7 @@ def detect_sensitive_data(text):
                 "line": i
             })
 
-        # 🔒 Password detection
+        # 🔒 password
         if "password" in line_lower:
             findings.append({
                 "type": "password",
@@ -52,7 +52,7 @@ def detect_sensitive_data(text):
                 "line": i
             })
 
-        # 🪙 Token detection
+        # token
         if "token" in line_lower or "bearer" in line_lower:
             findings.append({
                 "type": "token",
@@ -60,7 +60,7 @@ def detect_sensitive_data(text):
                 "line": i
             })
 
-        # ⚠️ Stack trace / error detection
+        # stack
         if "exception" in line_lower or "traceback" in line_lower or "nullpointerexception" in line_lower:
             findings.append({
                 "type": "stack_trace",
@@ -68,7 +68,7 @@ def detect_sensitive_data(text):
                 "line": i
             })
 
-        # 🐞 Debug leak detection
+        # leak data
         if "debug" in line_lower:
             findings.append({
                 "type": "debug_trace",
@@ -76,11 +76,11 @@ def detect_sensitive_data(text):
                 "line": i
             })
 
-        # 🔓 Failed login detection
+        # failed log detection
         if "failed login" in line_lower or "login failed" in line_lower:
             failed_login_count += 1
 
-    # 🚨 Brute-force detection
+    # brute force detection
     if failed_login_count >= 3:
         findings.append({
             "type": "brute_force_attempt",
@@ -88,7 +88,7 @@ def detect_sensitive_data(text):
             "line": "-"
         })
 
-    # 🚨 Suspicious IP detection
+    # suspicious ip detection
     for ip, count in ip_counter.items():
         if count >= 3:
             findings.append({

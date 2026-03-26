@@ -13,7 +13,7 @@ from docx import Document
 
 app = FastAPI()
 
-# ✅ Enable CORS
+# enable CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -22,9 +22,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# -------------------------------
-# ✅ REQUEST MODELS (for JSON API)
-# -------------------------------
+#request modal
 class AnalyzeOptions(BaseModel):
     mask: bool = True
     block_high_risk: bool = True
@@ -36,9 +34,7 @@ class AnalyzeRequest(BaseModel):
     options: Optional[AnalyzeOptions] = AnalyzeOptions()
 
 
-# -------------------------------
-# 🔐 POLICY ENGINE
-# -------------------------------
+#poilcy
 def apply_policy(findings, risk_level, text, mask=True, block_high=True):
     action = "allowed"
 
@@ -72,9 +68,7 @@ def apply_policy(findings, risk_level, text, mask=True, block_high=True):
     return action, text
 
 
-# -------------------------------
-# 🧠 COMMON ANALYSIS FUNCTION
-# -------------------------------
+#analysis
 def process_content(content: str, input_type: str = "log", mask=True, block_high=True):
     # Detection
     findings = detect_sensitive_data(content)
@@ -124,9 +118,7 @@ def process_content(content: str, input_type: str = "log", mask=True, block_high
     }
 
 
-# -------------------------------
-# ✅ JSON API (matches hackathon format)
-# -------------------------------
+#api detection
 @app.post("/analyze")
 async def analyze_json(request: AnalyzeRequest):
     return process_content(
@@ -137,9 +129,7 @@ async def analyze_json(request: AnalyzeRequest):
     )
 
 
-# -------------------------------
-# ✅ FILE UPLOAD API
-# -------------------------------
+#file upload
 @app.post("/analyze-file")
 async def analyze_file(
     file: UploadFile = File(...)
@@ -165,9 +155,7 @@ async def analyze_file(
     return process_content(content=content, input_type="file")
 
 
-# -------------------------------
-# 🏠 Home route
-# -------------------------------
+#home route
 @app.get("/")
 def home():
     return {"message": "AI Secure Data Intelligence Platform is running 🚀"}
