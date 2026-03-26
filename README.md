@@ -280,6 +280,7 @@ Analyzes text / structured / chat / log content.
 
 ## 🌐 Live Deployment
 
+## "kindly run backend before testing frontend live app, because i've used free version of render and the deployment sleeps after some time, it may not show any result or may take time to give output for live-app"
 ### 🚀 Frontend Application
 **Live App:**  
 https://ai-secure-platform-dun.vercel.app/
