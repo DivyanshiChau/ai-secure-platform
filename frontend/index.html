@@ -1,50 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Secure Data Intelligence Platform</title>
-  <link rel="stylesheet" href="style.css" />
+    <title>AI Secure Data Intelligence Platform</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>🔐 AI Secure Data Intelligence Platform</h1>
-    <p class="subtitle">
-      AI Gateway + Scanner + Log Analyzer + Risk Engine
-    </p>
 
-    <!-- 💬 CHAT BOX -->
-    <div id="chatBox" class="chat-box"></div>
-    <button onclick="uploadFile()">🚀 Send / Analyze</button>
+<div class="container">
 
-    <!-- INPUT AREA -->
-    <div class="upload-box">
-      <label for="textInput">💬 Paste logs / text / SQL / chat input</label>
-      <textarea
-        id="textInput"
-        placeholder="Paste logs here... e.g. password=admin123 api_key=sk-xyz Exception: error"
-      ></textarea>
-
-      <p class="or-text">OR</p>
-
-      <label for="fileInput">📂 Upload File (.txt, .log, .pdf, .docx)</label>
-      <input
-        type="file"
-        id="fileInput"
-        accept=".txt,.log,.pdf,.doc,.docx"
-      />
-
-      <button onclick="uploadFile()">🚀 Send / Analyze</button>
+    <!-- HEADER -->
+    <div class="header">
+        <h1>🔐 AI Secure Data Intelligence Platform</h1>
+        <p>AI Gateway + Scanner + Log Analyzer + Risk Engine</p>
     </div>
 
-    <div id="loading" class="hidden">⏳ Analyzing...</div>
+    <!-- MAIN DASHBOARD -->
+    <div class="dashboard">
 
-    <!-- 📊 RESULT PANEL -->
-    <div id="result" class="result-box">
-      <p class="placeholder">Analysis results will appear here.</p>
+        <!-- LEFT PANEL -->
+        <div class="card input-panel">
+
+            <h2>📥 Input Control Center</h2>
+
+            <textarea id="textInput" placeholder="Paste logs / SQL / chat here..."></textarea>
+
+            <div class="or">OR</div>
+
+            <input type="file" id="fileInput">
+
+            <div class="btn-group">
+                <button onclick="uploadFile()">🚀 Analyze</button>
+                <button onclick="loadSample()">📂 Sample Log</button>
+                <button onclick="clearInput()">🧹 Clear</button>
+            </div>
+
+        </div>
+
+        <!-- RIGHT PANEL -->
+        <div class="card result-summary">
+
+            <h2>📊 Threat Summary</h2>
+
+            <div class="metrics">
+                <div class="metric">
+                    <span>Risk Score</span>
+                    <h3 id="riskScore">-</h3>
+                </div>
+
+                <div class="metric">
+                    <span>Findings</span>
+                    <h3 id="findingCount">-</h3>
+                </div>
+
+                <div class="metric">
+                    <span>Action</span>
+                    <h3 id="action">-</h3>
+                </div>
+            </div>
+
+            <div class="ai-box">
+                <h3>🧠 AI Summary</h3>
+                <p id="summary">No data yet...</p>
+            </div>
+
+        </div>
+
     </div>
-  </div>
 
-  <script src="script.js"></script>
+    <!-- FINDINGS -->
+    <div class="card">
+        <h2>🔍 Findings</h2>
+        <div id="findings"></div>
+    </div>
+
+    <!-- LOG VIEW -->
+    <div class="card">
+        <h2>🔐 Log Viewer</h2>
+        <div id="logViewer"></div>
+    </div>
+
+    <!-- INSIGHTS -->
+    <div class="card">
+        <h2>💡 Security Insights</h2>
+        <div id="insights"></div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
