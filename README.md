@@ -352,15 +352,6 @@ For deployed backend:
 const API_BASE = "https://ai-secure-platform-n7uy.onrender.com";
 ```
 
----
-
-## 🔐 Security Notes
-
-- `.env` should **never** be uploaded to GitHub
-- Secrets and API keys must be stored as **environment variables**
-- Sensitive values are masked before display when enabled
-
----
 
 ## 🧗 Challenges Faced
 
