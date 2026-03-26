@@ -1,7 +1,7 @@
 // =====================================
 // CHANGE THIS AFTER BACKEND DEPLOYMENT
 // =====================================
-const API_BASE = "http://127.0.0.1:8000"; 
+const API_BASE = "https://ai-secure-platform-n7uy.onrender.com"; 
 // Example later:
 // const API_BASE = "https://ai-secure-backend.onrender.com";
 
